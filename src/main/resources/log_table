@@ -1,0 +1,15 @@
+create table offset_logger_metrics(
+  kfka_part string
+  strt_offset int,
+  end_offset int,
+  strt_tmpst timestamp,
+  end_tmpst timestamp
+  cnt int,
+  process_status string,
+  last_uptd_by string,
+  last_uptd_date timestamp
+)
+partition by (load_date,hour)
+
+
+-- can be extendable for all streaming by adding kafka topic as part of column
